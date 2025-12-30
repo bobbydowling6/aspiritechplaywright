@@ -2,11 +2,11 @@ import { test, expect } from '@playwright/test';
 
 test.describe("Leadership Page", () => {
   test.beforeEach(async ({page}) => {
-    await page.goto("https://aspiritech.org/leadership/")
+    await page.goto("/leadership/")
   })
 test("Validate Leadership Section", async ({page}) => {
     await expect(page).toHaveTitle("Leadership – Aspiritech")
-    await expect(page).toHaveURL("https://aspiritech.org/leadership/")
+    await expect(page).toHaveURL("/leadership/")
     await expect(page.getByRole('heading', { name: 'Leadership', exact: true })).toBeVisible();
     await expect(page.locator('#content')).toContainText('We are passionate about people, purpose, and the power of neurodiversity.');
     await expect(page.getByRole('heading', { name: 'We believe kindness drives' })).toBeVisible();

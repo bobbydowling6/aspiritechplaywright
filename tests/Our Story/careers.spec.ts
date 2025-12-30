@@ -2,11 +2,11 @@ import { test, expect } from '@playwright/test';
 
 test.describe("Careers Page", () => {
   test.beforeEach(async ({page}) => {
-    await page.goto("https://aspiritech.org/careers/")
+    await page.goto("/careers/")
   })
 test("Validate Employment Opportunities at Aspiritech Section", async ({page}) => {
     await expect(page).toHaveTitle("Careers – Aspiritech")
-    await expect(page).toHaveURL("https://aspiritech.org/careers/")
+    await expect(page).toHaveURL("/careers/")
     await expect(page.getByRole('heading', { name: 'Careers', exact: true })).toBeVisible();
     await expect(page.locator('#content')).toContainText('We are one of the largest employers of autistic adults in North America. We are passionate about people, purpose, and the power of neurodiversity. We strive to create an uplifting environment where our team members can reach their fullest potential. We would love to have you join us.');
     await expect(page.getByRole('heading', { name: 'Employment opportunities at' })).toBeVisible();
@@ -44,7 +44,7 @@ test("Validate Social Programs section", async ({page}) => {
     await expect(page.getByRole('link', { name: 'SUO@aspiritech.org' })).toBeVisible();
     await page.getByRole('link', { name: 'SUO page of our website' }).click();
     await expect(page).toHaveTitle('About the Stepping Up & Out (SUO) Program – Aspiritech')
-    await expect(page).toHaveURL("https://aspiritech.org/stepping-up/about-the-stepping-up-out-suo-program/")
+    await expect(page).toHaveURL("/stepping-up/about-the-stepping-up-out-suo-program/")
     await expect(page.getByRole('heading', { name: 'About the Stepping Up & Out (' })).toBeVisible();
     await page.goBack()
     await page.locator('section').filter({ hasText: 'Social ProgramsAspiritech' }).locator('img').first().screenshot({path: 'photos/suoprogram1.png'})
@@ -53,7 +53,7 @@ test("Validate Social Programs section", async ({page}) => {
     await expect(page.locator('#content')).toContainText('Our team members are the heart of everything we do. Find out what they have to say about working here.');
     await page.getByRole('link', { name: 'Find out what they have to' }).click();
     await expect(page).toHaveTitle('Team Members – Aspiritech')
-    await expect(page).toHaveURL('https://aspiritech.org/team-members/')
+    await expect(page).toHaveURL('/team-members/')
     await expect(page.getByRole('heading', { name: 'Team Members' })).toBeVisible();
 })
 })

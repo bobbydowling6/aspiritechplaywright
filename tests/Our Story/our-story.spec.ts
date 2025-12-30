@@ -2,11 +2,11 @@ import { test, expect } from '@playwright/test';
 
 test.describe("Our Story Page", () => {
   test.beforeEach(async ({page}) => {
-    await page.goto("https://aspiritech.org/our-story/")
+    await page.goto("/our-story/")
   })
 test("Validate Our Story Section", async ({page}) => {
     await expect(page).toHaveTitle("Our Story – Aspiritech")
-    await expect(page).toHaveURL("https://aspiritech.org/our-story/")
+    await expect(page).toHaveURL("/our-story/")
     await expect(page.getByRole('heading', { name: 'Our Story', exact: true })).toBeVisible();
     await expect(page.locator('#content')).toContainText('Aspiritech is a tech services agency, with more than 15 years\' experience. We offer full testing lifecycle management, including end-to-end user testing, quality assurance, accessibility testing, data services, and more. As a mission-driven organization, more than 90 percent of our team is on the autism spectrum.');
     await expect(page.locator('#content')).toContainText('Brenda and Moshe Weitzberg founded Aspiritech in 2008 with the dream of finding suitable employment for their adult son Oran. Oran is a college-educated, kind, capable person on the autism spectrum who had difficulties finding work that suited his talents. After researching a company in Denmark that employed autistic adults doing software QA testing, Moshe and Brenda had their answer. From a kitchen table start-up, Aspiritech now has 115+ employees in two locations and is growing every day.');
@@ -32,7 +32,7 @@ test("Validate ACE: Assist, Change, & Empower section", async ({page}) => {
     await expect(page.locator('section:nth-child(6) > .elementor-container > div > .elementor-widget-wrap > div:nth-child(2)').first()).toBeVisible();
     await page.getByRole('link', { name: 'please visit our donation page' }).click();
     await expect(page).toHaveTitle("Support Our Mission – Aspiritech")
-    await expect(page).toHaveURL("https://aspiritech.org/support-our-mission/")
+    await expect(page).toHaveURL("/support-our-mission/")
     await expect(page.getByRole('heading', { name: 'Support Our Mission' })).toBeVisible();
     await page.goBack()
     await page.locator('section').filter({ hasText: 'ACE: Assist, Change, &' }).locator('img').first().screenshot({path: 'photos/ace1.png'})

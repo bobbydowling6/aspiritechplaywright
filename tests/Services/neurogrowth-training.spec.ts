@@ -2,11 +2,11 @@ import { test, expect } from '@playwright/test';
 
 test.describe("NeuroGrowth Training Page", () => {
   test.beforeEach(async ({page}) => {
-    await page.goto("https://aspiritech.org/services/neurogrowth-training-services-for-companies-and-organizations/")
+    await page.goto("/services/neurogrowth-training-services-for-companies-and-organizations/")
   })
 test("Validate NeuroGrowth Training Services Section", async ({page}) => {
     await expect(page).toHaveTitle("NeuroGrowth Training Services: You already have a neurodiverse team – Aspiritech")
-    await expect(page).toHaveURL("https://aspiritech.org/services/neurogrowth-training-services-for-companies-and-organizations/")
+    await expect(page).toHaveURL("/services/neurogrowth-training-services-for-companies-and-organizations/")
     await expect(page.getByRole('heading', { name: 'NeuroGrowth Training Services', exact: true })).toBeVisible();
     await expect(page.locator('#content')).toContainText('You already have a neurodiverse team. Learn how to understand the strengths of different kinds of brains to drive employee innovation, engagement, and retention.');
     await page.getByRole('link', { name: 'Discover NeuroGrowth' }).click();
@@ -73,7 +73,7 @@ test("Free Neurodiversity & the Workplace Webinar section", async ({page}) => {
     await expect(page.locator('#content')).toContainText('Watch our free webinar featuring Aspiritech CEO Tara May to get new insights on creating an autism-friendly work environment, providing the right accommodations, incorporating employee self-assessments, and more.');
     await page.getByRole('link', { name: 'Watch the Webinar' }).click();
     await expect(page).toHaveTitle('Neurodiversity & the Workplace Webinar – Aspiritech')
-    await expect(page).toHaveURL('https://aspiritech.org/services/neurogrowth-training-services-for-companies-and-organizations/neurodiversity-webinar/')
+    await expect(page).toHaveURL('/services/neurogrowth-training-services-for-companies-and-organizations/neurodiversity-webinar/')
     await expect(page.getByRole('heading', { name: 'Neurodiversity & the' })).toBeVisible();
 })
 test("Read More About Neurodiversity at Aspiritech section", async ({page}) => {

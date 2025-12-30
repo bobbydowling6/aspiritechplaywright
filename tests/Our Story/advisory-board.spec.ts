@@ -2,11 +2,11 @@ import { test, expect } from '@playwright/test';
 
 test.describe("Advisory Board Page", () => {
   test.beforeEach(async ({page}) => {
-    await page.goto("https://aspiritech.org/advisory-board/")
+    await page.goto("/advisory-board/")
   })
 test("Validate Advisory Board Section", async ({page}) => {
     await expect(page).toHaveTitle("Advisory Board – Aspiritech")
-    await expect(page).toHaveURL("https://aspiritech.org/advisory-board/")
+    await expect(page).toHaveURL("/advisory-board/")
     await expect(page.getByRole('heading', { name: 'Advisory Board', exact: true })).toBeVisible();
     await expect(page.locator('#content')).toContainText('Our allies go above and beyond to support our mission of neurodiversity inclusion.');
     await expect(page.getByText('We know we\'re stronger together. And we have a lot of work to do. Our Advisory')).toBeVisible();

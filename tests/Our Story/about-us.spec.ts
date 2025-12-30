@@ -2,11 +2,11 @@ import { test, expect } from '@playwright/test';
 
 test.describe("About Us Page", () => {
   test.beforeEach(async ({page}) => {
-    await page.goto("https://aspiritech.org/about-us/")
+    await page.goto("/about-us/")
   })
 test("Validate About Us Page", async ({page}) => {
     await expect(page).toHaveTitle("About Us – Aspiritech")
-    await expect(page).toHaveURL("https://aspiritech.org/about-us/")
+    await expect(page).toHaveURL("/about-us/")
     await expect(page.getByRole('heading', { name: 'About Us' })).toBeVisible();
 })
 test("Validate the Service buttons", async ({page}) => {
@@ -14,7 +14,7 @@ test("Validate the Service buttons", async ({page}) => {
   await expect(page.getByRole('heading', { name: 'Accessibility' })).toBeVisible();
   await page.getByRole('link', { name: 'Find out more' }).first().click();
   await expect(page).toHaveTitle("Accessibility Testing: Design, UX, Usability, & WCAG Conformance – Aspiritech")
-  await expect(page).toHaveURL("https://aspiritech.org/services/accessibility/")
+  await expect(page).toHaveURL("/services/accessibility/")
   await expect(page.getByRole('heading', { name: 'Accessibility Testing: Design' })).toBeVisible();
   await page.goBack()
   //check the audio testing title is visible
@@ -22,7 +22,7 @@ test("Validate the Service buttons", async ({page}) => {
   //check the audio testing button is functional and is redirected to the right Url
   await page.getByRole('link', { name: 'Find out more' }).nth(1).click();
   await expect(page).toHaveTitle("Audio & Hardware Testing: Speakers, Headphones, & Connectivity – Aspiritech")
-  await expect(page).toHaveURL("https://aspiritech.org/services/audio-testing/")
+  await expect(page).toHaveURL("/services/audio-testing/")
   await expect(page.getByRole('heading', { name: 'Audio & Hardware Testing: Speakers, Headphones, & Connectivity' })).toBeVisible();
   await page.goBack()
   //check the quality assurance title is visible
@@ -30,7 +30,7 @@ test("Validate the Service buttons", async ({page}) => {
   //check the quality assurance button is functional and is redirected to the right Url
   await page.getByRole('link', { name: 'Find out more' }).nth(2).click();
   await expect(page).toHaveTitle("Software Quality Assurance – Aspiritech")
-  await expect(page).toHaveURL("https://aspiritech.org/services/quality-assurance/")
+  await expect(page).toHaveURL("/services/quality-assurance/")
   await expect(page.getByRole('heading', { name: 'Software Quality Assurance' })).toBeVisible();
   await page.goBack()
   //check the data services title is visible
@@ -38,7 +38,7 @@ test("Validate the Service buttons", async ({page}) => {
   //check the data services button is functional and is redirected to the right Url
   await page.getByRole('link', { name: 'Find out more' }).nth(3).click();
   await expect(page).toHaveTitle("Data Services: Data Annotation, Data Labeling, and Data Validation – Aspiritech")
-  await expect(page).toHaveURL("https://aspiritech.org/services/data-services/")
+  await expect(page).toHaveURL("/services/data-services/")
   await expect(page.getByRole('heading', { name: 'Data Services: Data Annotation, Data Labeling, and Data Validation' })).toBeVisible();
   await page.goBack()
   //check the Neurogrowth Training Services title
@@ -46,7 +46,7 @@ test("Validate the Service buttons", async ({page}) => {
   //check the Neurogrowth Training Services button is functional and is redirected to the right Url
   await page.getByRole('link', { name: 'group of executives around a' }).click();
   await expect(page).toHaveTitle("NeuroGrowth Training Services: You already have a neurodiverse team – Aspiritech")
-  await expect(page).toHaveURL("https://aspiritech.org/services/neurogrowth-training-services-for-companies-and-organizations/")
+  await expect(page).toHaveURL("/services/neurogrowth-training-services-for-companies-and-organizations/")
   await expect(page.getByRole('heading', { name: 'NeuroGrowth Training Services' })).toBeVisible();
   await page.goBack()
 })
@@ -57,14 +57,14 @@ test('Training Academy Section including links', async ({ page }) => {
   await expect(page).toHaveTitle("Social Impact - MEAF | MITSUBISHI ELECTRIC UNITED STATES")
   await expect(page).toHaveURL("https://us.mitsubishielectric.com/en/sustainability/greater-community/meaf-top/")
   await page.goBack()
-  await page.goto('https://aspiritech.org/about-us/');
+  await page.goto('/about-us/');
   await page.getByRole('link', { name: 'HAAPE' }).click();
   await expect(page).toHaveTitle("HAAPE - Helping Adults with Autism Perform and Excel")
   await expect(page).toHaveURL("https://haape.org")
   await page.goBack()
   await page.getByRole('link', { name: 'visit the Aspiritech Academy' }).click();
   await expect(page).toHaveTitle("Aspiritech Academy – Aspiritech")
-  await expect(page).toHaveURL("https://aspiritech.org/aspiritech-academy/")
+  await expect(page).toHaveURL("/aspiritech-academy/")
   await expect(page.getByRole('heading', { name: 'Aspiritech Academy', exact: true })).toBeVisible();
   await page.goBack()
 })
@@ -82,7 +82,7 @@ test('Leadership team section', async ({page}) => {
   await page.getByTestId('elementor-widget-wrap elementor-element-populated').count()
   await page.getByRole('link', { name: 'Read Full Bios' }).click();
   await expect(page).toHaveTitle("Leadership – Aspiritech")
-  await expect(page).toHaveURL("https://aspiritech.org/leadership/")
+  await expect(page).toHaveURL("/leadership/")
   await page.goBack()
 })
 })

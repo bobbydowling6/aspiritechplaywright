@@ -2,11 +2,11 @@ import { test, expect } from '@playwright/test';
 
 test.describe("FAQs Page", () => {
   test.beforeEach(async ({page}) => {
-    await page.goto("https://aspiritech.org/faqs/")
+    await page.goto("/faqs/")
   })
 test("Validate FAQs Section", async ({page}) => {
     await expect(page).toHaveTitle("Frequently Asked Questions (FAQs) – Aspiritech")
-    await expect(page).toHaveURL("https://aspiritech.org/faqs/")
+    await expect(page).toHaveURL("/faqs/")
     await expect(page.getByRole('heading', { name: 'Frequently Asked Questions (FAQs)', exact: true })).toBeVisible();
     
 })

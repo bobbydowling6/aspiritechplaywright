@@ -2,11 +2,11 @@ import { test, expect } from '@playwright/test';
 
 test.describe("Our Support Our Mission Page", () => {
   test.beforeEach(async ({page}) => {
-    await page.goto("https://aspiritech.org/support-our-mission/")
+    await page.goto("/support-our-mission/")
   })
 test("Validate Support Our Mission Section", async ({page}) => {
     await expect(page).toHaveTitle("Support Our Mission – Aspiritech")
-    await expect(page).toHaveURL("https://aspiritech.org/support-our-mission/")
+    await expect(page).toHaveURL("/support-our-mission/")
     await expect(page.getByRole('heading', { name: 'Support Our Mission', exact: true })).toBeVisible();
     await expect(page.getByRole('heading', { name: 'Help us transform lives.' })).toBeVisible();
     await expect(page.locator('#content')).toContainText('Your donation allows us to build the foundation for more jobs, better training, and a brighter future for people on the autism spectrum. Your contribution helps us develop our programs and expand our offerings. Our goal is to create employment opportunities across the country.');
@@ -31,7 +31,7 @@ test("Create a Lasting Legacy section", async ({page}) => {
   await expect(page.locator('#content')).toContainText('One sentence in your will can make a lifetime of difference to adults on the autism spectrum! To leave a gift in your will to Aspiritech, you can name Aspiritech as a “charitable successor” for your Donor Advised Fund. Or simply share this sentence with your attorney or financial planner: “I bequeath $[amount] or [amount]% of my estate to Aspiritech, NFP, 939 Chicago Ave, Evanston, IL 60202.”');
   await page.getByRole('link', { name: 'Donor Confidentiality and' }).click();
   await expect(page).toHaveTitle("Privacy Policy – Aspiritech")
-  await expect(page).toHaveURL("https://aspiritech.org/privacy-policy/")
+  await expect(page).toHaveURL("/privacy-policy/")
   await expect(page.getByRole('heading', { name: 'Privacy Policy', exact: true })).toBeVisible();
 })
 test("Support Aspiritech! section", async ({page}) => {
